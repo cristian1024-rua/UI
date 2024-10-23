@@ -1,101 +1,69 @@
-import Image from "next/image";
+import { Button, Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
-export default function Home() {
+export default function SportsStore() {
+  const products = [
+    {
+      id: 1,
+      name: "Guayos",
+      price: "$250.000",
+      image: "https://prochampions.vtexassets.com/arquivos/ids/924941-800-800?v=638538198888370000&width=800&height=800&aspect=true",
+      description: "Guayos profesionales, ideal para entrenamientos y partidos.",
+    },
+    {
+      id: 2,
+      name: "Camiseta de Colombia centenario",
+      price: "$230.000",
+      image: "https://www.futbolred.com/files/article_main/uploads/2024/10/11/67094df1a9655.jpeg",
+      description: "Camiseta Seleccion Colombia color beis",
+    },
+    {
+      id: 3,
+      name: "Camiseta de Colombia visitante",
+      price: "$200.000",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/0069678ad5e74fc88df94001daa1f54d_9366/Camiseta_Visitante_Seleccion_Colombia_24_Kids_Negro_IP8272_01_laydown.jpg",
+      description: "Camiseta Seleccion Colombia color negro con tomate",
+    },
+    {
+      id: 4,
+      name: "Camiseta de Colombia Local",
+      price: "$180.000",
+      image: "https://prochampions.vtexassets.com/arquivos/ids/871077-800-800?v=638489009382170000&width=800&height=800&aspect=true",
+      description: "Camiseta Seleccion Colombia color Amarillo",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
+    <section
+      className="min-h-screen bg-cover bg-center bg-no-repeat p-6"
+      style={{ backgroundImage: "url('https://example.com/sports-background.jpg')" }}
+    >
+      <h1 className="text-3xl font-bold text-center mb-8 text-white">Tienda Deportiva</h1>
+      <ul className="flex flex-col md:flex-row md:flex-wrap justify-center gap-6">
+        {products.map((product) => (
+          <li key={product.id} className="w-full md:w-1/2 lg:w-1/3">
+            <Card className="shadow-lg bg-white/90">
+              <CardBody className="p-4">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  style={{ objectFit: "cover" }}
+                  width="100%"
+                  height={200}
+                  className="rounded-t-lg"
+                />
+                <h2 className="text-xl font-bold mt-4 text-black">{product.name}</h2>
+                <p className="text-gray-600">{product.description}</p>
+                <p className="text-lg font-bold text-gray-800">{product.price}</p>
+              </CardBody>
+              <CardFooter className="flex justify-center">
+                <Button color="primary" className="bg-blue-500 hover:bg-blue-600">
+                  Añadir al Carrito
+                </Button>
+              </CardFooter>
+            </Card>
           </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        ))}
+      </ul>
+    </section>
   );
 }
